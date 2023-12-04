@@ -10,7 +10,10 @@ public class RubyController : MonoBehaviour
     public int maxHealth = 5;
     public float timeInvincible = 2;
     public int health { get { return currentHealth;  } }
-     int currentHealth;  
+     int currentHealth;
+
+    bool isInvincible;
+    float invincibleTimer;
 
 
     
@@ -30,6 +33,15 @@ public class RubyController : MonoBehaviour
     {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
+
+        if(isInvincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+            if(invincible > 0 )
+            {
+                isInvincible = false;
+            }
+        }
 
 
     }
